@@ -11,4 +11,10 @@ include:
     - opts: {{ m[1].opts|default('vers=3') }}
     - persist: {{ m[1].persist|default('True') }}
     - mkmnt: {{ m[1].mkmnt|default('True') }}
+  {%- if m[1].extra_mount_invisible_options is defined %}
+    - extra_mount_invisible_options: {{ m[1].extra_mount_invisible_options }}
+  {%- endif %}
+  {%- if m[1].extra_mount_invisible_keys is defined %}
+    - extra_mount_invisible_keys: {{ m[1].extra_mount_invisible_keys }}
+  {%- endif %}
 {% endfor %}
